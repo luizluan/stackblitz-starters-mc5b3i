@@ -9,8 +9,15 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 @Component({
   selector: 'my-app',
   template: `
+    Type Something
     <input type="text" [(ngModel)]="this.values.Model" [mask]="getDynamicMask()" [patterns]="paterns"
     [showMaskTyped]="true" [specialCharacters]="specialCharacters" [dropSpecialCharacters]="false">
+    <br>
+    <br>
+    Value from ngModel: {{this.values.Model}}
+    <br>
+    <br>
+    <button (click)="clear()">Click here to Clear the input</button>
   `,
 })
 export class App {
@@ -41,6 +48,10 @@ export class App {
   getDynamicMask() {
     return undefined;
   }
+
+  clear() {
+    this.values = { Model: undefined };
+  }
 }
 
 @NgModule({
@@ -53,6 +64,7 @@ export class App {
   ],
   declarations: [App],
   providers: [provideNgxMask()],
+  bootstrap: [App],
 })
 export class AppModule {}
 
