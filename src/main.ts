@@ -14,6 +14,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     [showMaskTyped]="true" [specialCharacters]="specialCharacters" [dropSpecialCharacters]="false">
     <br>
     <br>
+    Without mask <input type="text" [(ngModel)]="this.values.Model">
+    <br>
+    <br>
     Value from ngModel: {{this.values.Model}}
     <br>
     <br>
